@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+	<mapper namespace="com.ezen.infoRum.dao.ForumDao">
+		<!-- 게시판 초기화면 리스트-->
+		<select id="mtdListView" resultType="com.ezen.infoRum.dto.ForumDto">
+			select * from mainBoard where category='${categori}' order by num desc limit 0,5
+		</select>
+		
+		<!-- 스크롤이벤트시 리스트 추가게시글-->
+		<select id="mtdListViewPlus" resultType="com.ezen.infoRum.dto.ForumDto">
+			select * from mainBoard where category='${param3}' order by num desc limit ${param1},${param2}
+		</select>
+		
+		<!-- 게시판 게시글 게시 처리 -->
+		<insert id="mtdWriterPost">
+			insert into mainBoard (uid, nickname, category, image, content, profile)
+			values (#{item1}, #{item2}, #{item3}, #{item4}, #{item5}, #{item6})
+		</insert>
+		
+		<!-- 게시물 수정 처리 -->
+		<update id="mtdUpdatePost">
+			update mainBoard set  
+			uid=#{item2}, nickname=#{item3}, category=#{item4}, 
+			image=#{item5}, content=#{item6}, profile=#{item7}
+			
+			where num=#{item1} 
+		</update>
+		
+		<!-- 게시물 삭제 처리 -->
+	  	<delete id="mtdDeletePost">
+	  		delete from mainBoard where num = ${param1}
+	  	</delete>
+<!-- 		<update id="mtdDeletePost"> -->
+<!-- 			update mainBoard set   -->
+<!-- 			uid='', nickname='', image='', content='작성자가 삭제한 게시글입니다.', profile='' -->
+			
+<!-- 			where num='${param1}' -->
+<!-- 		</update> -->
+	  	
+	  	<!-- 유저 타임라인 초기화면 리스트-->
+		<select id="mtdUserTimelineList" resultType="com.ezen.infoRum.dto.ForumDto">
+			select * from mainBoard where uid='${param1}' order by num desc limit 0,5
+		</select>
+		
+		<!-- 유저 타임라인 스크롤이벤트시 리스트 추가게시글-->
+		<select id="mtdUserTimelineListPlus" resultType="com.ezen.infoRum.dto.ForumDto">
+			select * from mainBoard where uid='${param3}' order by num desc limit ${param1},${param2}
+		</select>
+		
+		<!-- 유저 타임라인 내 해당유저 총 게시물 -->
+		<select id="mtdPostCnt" resultType="int">
+			select count(*) from mainBoard where uid='${param1}'
+		</select>
+		
+		
+		<!-- 댓글 관련 -->
+		
+		<!-- 댓글 초반리스트 불러오기 -->
+		<select id="mtdCommentList" resultType="com.ezen.infoRum.dto.ForumCommentDto">
+			select * from boardComment where category='${param1}'
+		</select>
+		
+		<!-- 타임라인용 댓글 불러오기 -->
+		<select id="mtdTLCommentList" resultType="com.ezen.infoRum.dto.ForumCommentDto">
+			select * from boardComment order by num desc
+		</select>
+		
+		<!-- 댓글 카운트 불러오기 -->
+		<select id="mtdCommentCount" resultType="int">
+			select count(*) from boardComment where ref='${param1}'
+		</select>
+		
+		<!-- 게시판 댓글 게시 처리 -->
+		<insert id="mtdWriterComment">
+			insert into boardComment (uid, nickname, category, ref, refCnt, comment, image, profile)
+			values (#{item1}, #{item2}, #{item3}, #{item4}, #{item5}, #{item6}, #{item7}, #{item8})
+		</insert>
+		
+		<!-- 게시판 댓글 수정 처리 -->
+		<update id="mtdUpdateComment">
+			update boardComment set  
+			image=#{item3}, comment=#{item4}, profile=#{item5}
+			
+			where ref='${item1}' and refCnt='${item2}'
+		</update>
+		
+<!-- 		게시판 댓글 삭제 처리 -->
+	  	<update id="mtdDeleteComment">
+	  		update boardComment set 
+	  		uid='' , nickname='', comment='댓글작성자가 삭제한 댓글 입니다.', image='', profile=''
+			where ref='${param1}' and refCnt='${param2}'
+	  	</update>
+		
+	</mapper>
