@@ -2,6 +2,8 @@ package com.ezen.infoRum.svc;
 
 import java.util.Map;
 
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
 import com.ezen.infoRum.dto.MemDto;
 
 public interface MemSvc {
@@ -17,6 +19,8 @@ public interface MemSvc {
 	int chkID(String uid);
 
 	void myPageProc(Map<String, Object> map);
+
+	int mtdProfile(MultipartHttpServletRequest req);
 	
 	
 	

@@ -1,5 +1,6 @@
 package com.ezen.infoRum.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -20,6 +21,8 @@ public interface MemDao {
 	int chkID(String uid);
 
 	void myPageProc(Map<String, Object> map);
+
+	int mtdProfile(List<String> list);
 	
 
 }

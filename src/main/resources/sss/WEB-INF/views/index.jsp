@@ -38,13 +38,13 @@
 				<span>시간</span>
 				<button type="button">로그인 연장</button>
 				<button id="logoutBtn" type="button" onclick="location.href='/logout'">로그아웃</button>
-				<button type="button">나의 정보</button>
+				<button type="button">관리자 정보</button>
 				<span>관리자님 환영합니다</span>			
 				</div>
 				
 			<%} else{%>
 				<div id="loginStateMenu" class="dFlex">
-				<span>asd</span>
+				<span>시간표시?</span>
 				<button type="button">로그인 연장</button>
 				<button id="logoutBtn" type="button" onclick="location.href='/logout'">로그아웃</button>
 				<button type="button" onclick="location.href='/myPage'">나의 정보</button>			

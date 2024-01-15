@@ -29,7 +29,7 @@
 			</div>
 			
 			<footer id="loginFooter" class="dFlex">
-				<span class="notosanskr">비밀번호 찾기</span>
+				<span class="notosanskr"><a href="pwdChange">비밀번호 찾기</a></span>
 				<span class="notosanskr">|</span>
 				<a href="tos"><span class="notosanskr">신규회원가입</span></a>
 			</footer>

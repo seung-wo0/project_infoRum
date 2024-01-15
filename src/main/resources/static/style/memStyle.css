@@ -176,3 +176,40 @@ main#pwdCmain div#pwdCArea button{
     border: none;
 	
 }
+
+div#profileArea {
+	border: 2px solid #aaa;
+	margin: 0 auto;
+	width: 250px;
+	text-align: center;
+	padding: 10px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+div#profileArea img{
+	display: block;
+	border: 1px solid #aaa;
+	border-radius:50%;
+	width: 200px;
+	margin: 0 auto;
+}
+
+div#profileArea input{
+/* 	border: 1px solid #000; */
+	width: 200px;
+	display:block;
+	margin: 0 auto;
+	margin-top: 10px;
+	
+}
+
+div#profileArea button{
+	cursor: pointer;
+	background-color: #04f;
+	border: none;
+	color: #fff;
+	padding: 4px 8px;
+	margin-top: 10px;
+	border-radius: 4px;
+}

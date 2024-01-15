@@ -1,5 +1,6 @@
 package com.ezen.infoRum;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.ezen.infoRum.dto.MemDto;
 import com.ezen.infoRum.svc.MemSvc;
@@ -190,4 +193,34 @@ public class MemberController {
 			memSvc.myPageProc(map);
 			return "redirect:/";
 		}
+		
+		// 프로필 파일 업로드
+		@RequestMapping("/profileProc")
+		public String profileProc(MultipartHttpServletRequest req,HttpSession session,@RequestParam("delfName") String delfName) {
+			
+			System.out.println(delfName);
+			
+			if(! delfName.equals("nullprofile.png")) {
+			//기존 파일삭제
+				String realPath = "D:\\InfoProc_20230807/jsw/Silsp/springBoot/InfoRum/src/main/resources/static/profileImg/"; // 파일저장경로
+				File file = new File(realPath + delfName);
+				if (file.exists()) file.delete();
+				System.out.println("실행중");
+			}
+			
+			//삭제후 업로드
+			String uid = req.getParameter("uid");
+			int num = memSvc.mtdProfile(req);
+
+			if(num!=0) {
+				MemDto ulist = memSvc.findMemInfo(uid);
+				session.setAttribute("profile_session", ulist.getProfile());
+			}
+			
+			return "redirect:/myPage";
+		}
+		
+		
+
 }
+

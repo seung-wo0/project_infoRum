@@ -33,9 +33,16 @@
 	<update id="myPageProc">
 		update userList set upw=#{item2},nickname=#{item3},uemail=#{item4} where uid=#{item1}
 	</update>
+	
+	<!-- 프로필 사진 변경 -->
+	<update id="mtdProfile">
+		update userList set profile='${list.get(1)}' where uid='${list.get(2)}'
+	</update>
+	
 </mapper>
 
-	
+
+
 	
 
 <!-- 삭제하기 -->
