@@ -3,8 +3,6 @@
 
 
 <%
-String uId = "test";
-String nickname = "test";
 java.sql.Timestamp regTM = new java.sql.Timestamp(java.time.Instant.now().toEpochMilli());
 %>
 
@@ -19,9 +17,14 @@ java.sql.Timestamp regTM = new java.sql.Timestamp(java.time.Instant.now().toEpoc
 </head>
 <body>
 
+	
+
 <!--  헤더템플릿 시작, iframe으로 변경 -->
    <%@ include file="../inc/headerTmp.jsp"%>
    <!--  헤더템플릿 끝 -->
+   <%
+	if (auth_session == 2) {
+	%>
 
    <div id="wrap2">
       <div id="contents" class="bbsWrite">
@@ -37,21 +40,23 @@ java.sql.Timestamp regTM = new java.sql.Timestamp(java.time.Instant.now().toEpoc
                   <tr>
                      <td class="req notosanskr">닉네임</td>
                      <!-- td.req 필수입력 -->
-                     <td><%=nickname%> <input type="hidden" name="nickname"
-                        value="<%=nickname%>"> <input type="hidden" name="uId"
-                        value="<%=uId%>"></td>
+                     <td><span class="notosanskr">관리자</span> <input type="hidden" name="nickname"></td>
                   </tr>
                   <tr>
                      <td class="notosanskr" style="font-weight: bold; color: #555555;">작성시간</td>
 
-                     <td><%=regTM%> <input type="hidden" name="regTM">
+                     <td><%= regTM.toString().substring(0, 16) %><input type="hidden" name="regTM">
                   </tr>
 
                   <tr>
                      <td class="req notosanskr">제목</td>
                      <!-- td.req 필수입력 -->
-                     <td><input type="text" name="title" maxlength="50"
+                     <td><input type="text" name="title" maxlength="40"
                         id="stitle" required></td>
+                  </tr>
+                   <tr>
+                     <td class="req notosanskr">첨부파일</td>
+                  	 <td><input type="file" name="fileUpload"></td>
                   </tr>
                   <tr>
                      <td class="contentTD notosanskr" style="font-weight: bold; color: #555555;">내용</td>
@@ -75,6 +80,11 @@ java.sql.Timestamp regTM = new java.sql.Timestamp(java.time.Instant.now().toEpoc
       </div>
 
    </div>
+   
+      
+   <%
+	}
+	%>
    <!-- div#wrap -->
    <script
       src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

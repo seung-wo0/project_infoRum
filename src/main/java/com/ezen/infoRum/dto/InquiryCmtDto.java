@@ -8,10 +8,10 @@ public class InquiryCmtDto {
 	private int num;		 
 	private String uId;
 	private String nickname;
-	private String title;
-	private String profile;
 	private int pos;
+	private String profile;
 	private String content;
 	private Timestamp regTm;
+	private String image;
 }
 // uid,nickname,title,pos,content,profile

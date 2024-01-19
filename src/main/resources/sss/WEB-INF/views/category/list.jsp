@@ -2,16 +2,29 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <c:forEach var="list" items="${ list }">
 <% 
 String category = request.getParameter("category"); 
 String linkUrl = request.getHeader("referer"); 
+String profile_session = (String)session.getAttribute("profile_session");
+
+if(profile_session==null){
+	profile_session="nullprofile.png";
+}
 %>
 <div id="rowArea" class="listrow" >
 	<div id="userInfoArea" class="dFlex">
 		<div id="userImgArea">
 			<span class="profile">
-				<img src="images/board3.jpg" width="32" height="32">
+			<c:choose>
+				<c:when test="${ list.profile == '' || list.profile eq null}">
+				<img src="profileImg/nullprofile.png" width="32" height="32">
+				</c:when>
+				<c:otherwise>
+				<img src="profileImg/${ list.profile }" width="32" height="32">
+				</c:otherwise>
+			</c:choose>
 			</span>
 		</div>
 		<div id="userWirterArea">
@@ -41,7 +54,7 @@ String linkUrl = request.getHeader("referer");
 			<input type="hidden" name="category" value="<%=category%>">
 			<input type="hidden" name="image" value="">
 			<textarea id="content" name="content">${ list.content } </textarea>
-			<input type="hidden" name="profile" value="">
+			<input type="hidden" name="profile" value="<%=profile_session %>">
 			<input type="hidden" name="linkUrl" value="<%=linkUrl %>">
 			<div id="updateBtnArea">
 				<button type="submit" >수정</button>
@@ -64,13 +77,15 @@ String linkUrl = request.getHeader("referer");
 					<input type="hidden" name="category" value="${ list.category }">
 					<input type="hidden" id="ref" name="ref" value="${ list.num }">
 					<input type="hidden" name="image" value="">
-					<input type="hidden" name="profile" value="">
+					<input type="hidden" name="profile" value="<%= profile_session %>">
 					<input type="hidden" name="infouserid" value="${ list.uid }">
 					<input type="hidden" name="linkUrl" value="<%=linkUrl %>">
 					<button type="submit" id="commentSendBtn" name="commentSendBtn">등록</button>
 				</form>
 	
 			</div>
+			
+			
 			<div id="commentListArea">
 				<!-- 댓글 출력 부분 추가 -->
 				
@@ -82,11 +97,17 @@ String linkUrl = request.getHeader("referer");
 							<div id="user_comment_profileArea">
 								<span class="profile">
 								<c:choose>
-									<c:when test="${ cmtList.uid eq '' || cmtList.uid eq null}">
+									<c:when test="${ cmtList.uid eq '' || cmtList.uid eq null }">
 									</c:when>
 									<c:otherwise>
-										<img src="images/board3.jpg" alt="테스트">
-<%-- 												<img src="${ cmtList.profile }" alt="프로필"> --%>
+										<c:choose>
+											<c:when test="${ cmtList.profile == '' || cmtList.profile eq null }">
+											<img src="profileImg/nullprofile.png" width="32" height="32">
+											</c:when>
+											<c:otherwise>
+											<img src="profileImg/${ cmtList.profile }" width="32" height="32">
+											</c:otherwise>
+										</c:choose>
 									</c:otherwise>
 								</c:choose>
 								</span>

@@ -61,5 +61,18 @@
 #headerIcon img:hover {
 	transform: translateY(-5px);
 	transition: all 0.3s;
+	cursor: pointer;
 }
+
+div#loginStateMenu img {
+	margin-right: 15px;
+}
+
+div#loginStateMenu span {
+	text-align: center;
+	font-weight: bold;
+}
+
+
+
 

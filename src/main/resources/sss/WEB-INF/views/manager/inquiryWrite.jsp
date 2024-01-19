@@ -23,19 +23,19 @@
         </div>
         <div id="board">
             <div id="query">1대1 문의</div>
-            <button id="writeButton" onclick="boardWrite()">글쓰기</button>
             <div id="title">
-                <textarea id="titleText" placeholder="제목을 입력해 주세요."></textarea>
+                <textarea id="titleText" placeholder="제목을 입력해 주세요.">${inquiry.title }</textarea>
             </div>
         </div>
         <div id="board2">
             <form method="post">
-                <textarea id="summernote" name="editordata"></textarea>
+                <textarea id="summernote" name="editordata">${inquiry.content }</textarea>
               </form>
         </div>
-        
+		<button id="writeButton" onclick="boardWrite()">글쓰기</button>
+		<button id="listButton" onclick="boardList()">목록으로 가기</button>
 </body>
-<script src="./script/inquiryWrite.js"></script>
+<script src="./script/inquiry.js"></script>
 <script src="./script/summernote-lite.js"></script>
 <script src="./script/summernote-ko-KR.min.js"></script>
 </html>

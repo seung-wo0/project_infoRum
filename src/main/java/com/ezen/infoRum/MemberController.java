@@ -202,7 +202,7 @@ public class MemberController {
 			
 			if(! delfName.equals("nullprofile.png")) {
 			//기존 파일삭제
-				String realPath = "D:\\InfoProc_20230807/jsw/Silsp/springBoot/InfoRum/src/main/resources/static/profileImg/"; // 파일저장경로
+				String realPath = "D:\\SeungWoo/Silsp/springBoot/InfoRum/src/main/resources/static/profileImg/"; // 파일저장경로
 				File file = new File(realPath + delfName);
 				if (file.exists()) file.delete();
 				System.out.println("실행중");

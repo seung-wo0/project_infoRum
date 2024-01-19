@@ -1,3 +1,4 @@
+
 /**
  *  나중에 managerScript.js로 이동 예정
  */
@@ -55,64 +56,41 @@
             ],
 
             callbacks: {
-                onImageUpload: function (files, editor, welEditable) {
+                onImageUpload: function (files) {
                     // 파일 업로드 (다중 업로드를 위해 반복문 사용)
-                    for (var i = files.length - 1; i >= 0; i--) {
-                        var fileName = files[i].name
-
-                        // 이미지 alt 속성 삽일을 위한 설정
-                        var caption = prompt('이미지 설명 :', fileName)
-                        if (caption == '') {
-                            caption = '이미지'
-                        }
-                        uploadSummernoteImageFile(files[i], this, caption)
-                    }
+                     uploadSummernoteImageFile(files[0]);
                 },
             },
         })
     })
 
     // 이미지 업로드 함수 ajax 활용
-    function uploadSummernoteImageFile(file, el, caption) {
+    function uploadSummernoteImageFile(file) {
         data = new FormData()
         data.append('file', file)
         $.ajax({
             data: data,
             type: 'POST',
-            url: 'uploadSummernoteImageFile',
+            url: 'image/upload',
             contentType: false,
             enctype: 'multipart/form-data',
             processData: false,
-            success: function (data) {
-                $(el).summernote(
-                    'editor.insertImage',
-                    data.url,
-                    function ($image) {
-                        $image.attr('alt', caption) // 캡션 정보를 이미지의 alt 속성에 설정
-                    }
-                )
+            success: function (resp) {
+				
+				let imgNode = $("<img>");
+              	imgNode.attr("src","/image/read?fileName="+resp);
+              	imgNode.attr("id","uploadImg");
+              	console.log($(".note-editable")); // 선택된 요소가 있는지 콘솔에 출력
+              	alert(resp);
+				$(".note-editable").append(imgNode); // 이미지를 복사하여 추가
             },
         })
     }
     function boardWrite() {
 		
 		let data = new FormData();
-		let pos = null;
-		   $.ajax({
-            data: data,
-            type: 'GET',
-            url: '/inquiryWrite/pos',
-             contentType: false,
-  			 processData: false,
-  			 async: false,
-            success: function (data) {
-				alert(data+"버그");
-				pos = Number(data)+1;
-            },
-        })
 		let title = $('#titleText').val();
 	  	let summernote = $('#summernote').val();
-	  	let reply = 0;
 	  	let uid = "dummyId2";
 	  	let nickname = "dummyName2";
 	  	
@@ -126,8 +104,6 @@
        
         data.append('title', title);
         data.append("content",summernote);
-        data.append("pos",pos);
-        data.append("reply",reply);
         data.append("uid",uid);
         data.append("nickname",nickname);
         data.append("profile",profile);
@@ -146,4 +122,40 @@
         
 	  
 	  
+	}
+	
+    function boardUpdate() {
+		
+		let data = new FormData();
+		let title = $('#titleText').val();
+	  	let summernote = $('#summernote').val();
+	  	let num = $("#num").val();
+	  	
+		// String uid = req.getParameter("uid");
+		// String nickname = req.getParameter("nickname");
+		// String profile = req.getParameter("profile");
+        
+        // data.append("uid",'1234');
+        // data.append("nickname","1234");
+       
+        data.append('title', title);
+        data.append("content",summernote);
+        data.append("num",num);
+        $.ajax({
+            data: data,
+            type: 'POST',
+            url: '/inquiryUpdate/data',
+             contentType: false,
+  			processData: false,
+            success: function (data) {
+              	alert("게시글을 작성했습니다");
+              	location.href="./inquiryDetail?num="+num;
+            },
+        })
+        
+	  
+	  
+	}
+	function boardList() {
+		location.href= "/inquiry";
 	}

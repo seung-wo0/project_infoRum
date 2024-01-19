@@ -46,3 +46,9 @@ $(document).ready(function() {
 		window.location.href = "notice";
 	});
 });
+
+$(document).ready(function() {
+	$("#manager").click(function() {
+		window.location.href = "manager";
+	});
+});

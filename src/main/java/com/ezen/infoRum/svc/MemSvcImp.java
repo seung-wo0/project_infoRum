@@ -71,7 +71,7 @@ public class MemSvcImp implements MemSvc {
 			try {
 				if (!upFile.equals("")) {
 					
-					String realPath = "D:\\InfoProc_20230807/jsw/Silsp/springBoot/InfoRum/src/main/resources/static/profileImg/";
+					String realPath = "D:\\\\SeungWoo/Silsp/springBoot/InfoRum/src/main/resources/static/profileImg/";
 					// D드라이브 경로에는 백슬래쉬 기호(\\) 및 마지막 슬래쉬(/)기호 필수
 					
 					File folder = new File(realPath);

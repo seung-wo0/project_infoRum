@@ -2,10 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%
 	String uid_session2 = (String)session.getAttribute("uid_session");
+	String nickname_session2 = (String)session.getAttribute("nickname_session");
 	int auth_session = 0;
 	
 	if(uid_session2!=null){
-	auth_session = (int)session.getAttribute("auth_session");	
+	auth_session = (int)session.getAttribute("auth_session");
+	
 }
 %>
 <link rel="stylesheet" href="../style/headerTmpStyle.css?v">
@@ -33,19 +35,16 @@
 				</a> 
 				<%} else if(auth_session == 2) {%>
 				<div id="loginStateMenu" class="dFlex">
-				<span>시간</span>
-				<button type="button">로그인 연장</button>
-				<button id="logoutBtn" type="button" onclick="location.href='/logout'">로그아웃</button>
-				<button type="button">관리자 정보</button>
-				<span>관리자님 환영합니다</span>			
+				<img src="/images/mypage_icon.png" width="45px" onclick="location.href='/myPage'">
+				<img src="/images/logout_icon.png" width="45px" onclick="location.href='/logout'">	
+				<span class="notosanskr">관리자님<br>환영합니다</span>			
 				</div>
 				
 			<%} else{%>
 				<div id="loginStateMenu" class="dFlex">
-				<span>asd</span>
-				<button type="button">로그인 연장</button>
-				<button id="logoutBtn" type="button" onclick="location.href='/logout'">로그아웃</button>
-				<button type="button" onclick="location.href='/myPage'">나의 정보</button>			
+				<img src="/images/mypage_icon.png" width="45px" onclick="location.href='/myPage'">
+				<img src="/images/logout_icon.png" width="45px" onclick="location.href='/logout'">		
+				<span class="notosanskr"><%= nickname_session2 %>님<br>환영합니다</span>
 				</div>	
 			<%} %>
 				<a href="/"> 

@@ -139,7 +139,7 @@ div#postFooterArea textarea#comment {
 
 div#postFooterArea div#commentinputArea img {
 	position: absolute;
-	top: 17px;
+/* 	top: -1px; */
 	right: 65px;
 
 }

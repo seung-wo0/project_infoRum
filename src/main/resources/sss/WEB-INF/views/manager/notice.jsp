@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -58,8 +60,7 @@
 									<td class="th-title notosanskr"><a
 										href="/noticeDetail?num=${list.num}" class="notosanskr">${list.title}</a></td>
 									<!-- 제목 -->
-									<td class="th-date notosanskr"><fmt:formatDate
-											value="${list.regTM}" type="date" dateStyle="medium" /></td>
+									<td class="th-date notosanskr"><fmt:formatDate value="${list.regTM}" pattern="yyyy-MM-dd HH:mm" /></td>
 									<!-- 등록일 -->
 								</tr>
 							</c:forEach>
@@ -68,12 +69,16 @@
 					</table>
 				</div>
 			</div>
-
+			
+				<div id="paging" style = "width: 600px; text-align:center; margin-top:10px;">
+						
+			 <c:forEach var="pageNumber" begin="1" end="${lastpage}">
+     	  	 <a href="notice?pageNumber=${pageNumber}"><span class="notosanskr">${pageNumber}</span></a> 
+   			 </c:forEach>
+   			 
+		</div>
 		</section>
-
-
-
-	</div>
+</div>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<script src="/script/noticeScript.js"></script>

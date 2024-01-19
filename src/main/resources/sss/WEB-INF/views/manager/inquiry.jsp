@@ -31,6 +31,7 @@
 			<span class="notosanskr">1:1문의 게시판</span>
 		</div>
 		<div id="page">페이지:${page}/${allPage}</div>
+		
 		<table id="inquiryTbl">
 			<thead>
 				<tr id="theadTr">
@@ -41,8 +42,6 @@
 				</tr>
 			</thead>
 			<tbody>
-			
-					
 				<c:forEach var="list" items="${list}">
 					<tr class="tbdyTr" onclick="moveDetail(${list.num})">
 						<td class="num">${list.num}</td>
@@ -54,25 +53,53 @@
 					</tr>
 				</c:forEach>
 			</tbody>
-			<div></div>
 		</table>
-		
-		
-			
+		<div id="inquiryBtn" onclick="writeInquiry()">글쓰기</div>
+		<div style="display:flex;justify-content: left; width: 500px;">
+			<img src="./images/right.png" id="leftPageText" style="width:20px;height:20px;margin-top: 7px; cursor: pointer" onclick=movePage(${startPage-1},${allPage})>
+			<div class="pageText" id="pageText0" onclick=movePage(${startPage},${allPage})>${startPage}</div>
+			<div class="pageText" id="pageText1" onclick=movePage(${startPage+1},${allPage})>${startPage+1}</div>
+			<div class="pageText" id="pageText2" onclick=movePage(${startPage+2},${allPage})>${startPage+2}</div>
+			<div class="pageText" id="pageText3" onclick=movePage(${startPage+3},${allPage})>${startPage+3}</div>
+			<div class="pageText" id="pageText4" onclick=movePage(${startPage+4},${allPage})>${startPage+4}</div>
+			<img src="./images/left.png" id="pageText5" style="width:20px;height:20px;    margin-top: 7px;cursor: pointer" onclick=movePage(${startPage+5},${allPage})>
 		</div>
-		<div style="display:flex;">
-			<div>${startPage}</div>
-			<div>${startPage+1}</div>
-			<div>${startPage+2}</div>
-			<div>${startPage+3}</div>
-			<div>${startPage+4}</div>
-		</div>
-
-
+	</div>
 	
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<script src="/script/noticeScript.js"></script>
+	<script>
+		function movePage(page,finalPage) {
+			if(page<1) {
+				location.href = "http://localhost:82/inquiry?page="+1;
+				return;
+			}
+			if(page<finalPage) {
+				location.href = "/inquiry?page="+page;
+			} else {
+				location.href = "/inquiry?page="+finalPage;
+			}
+			
+		}
+		function writeInquiry() {
+			location.href = "/inquiryWrite";
+		}
+		if(${startPage}==1) {
+			document.getElementById("leftPageText").style.display="none";
+		}
+		for(let i=0;i<=5;i++) {
+			if(${startPage}+i>${allPage}) {
+				document.getElementById("pageText"+i).style.display="none";
+			}
+		}
+		if(${page}%5==0) {
+			document.getElementById("pageText"+4).style.fontWeight="bold";
+		}
+		else {
+			document.getElementById("pageText"+Number(${page}%5-1)).style.fontWeight="bold";
+		}
+	</script>
 </body>
 
 </html>

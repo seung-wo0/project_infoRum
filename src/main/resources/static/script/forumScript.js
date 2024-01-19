@@ -44,7 +44,7 @@ $(function () {
                     async: true,
                     success: function (data) {
                         endContent = endContent + 5;
-                        $("#testarea").append(data);
+                        $("#userCommentArea").append(data);
                         loading = false;
                     },
                     error: function () {
@@ -66,6 +66,7 @@ $(function () {
 		alert("작업중");
 	});
     
+    
     // 게시판 글 게시 이벤트
     $("#writeBtn").click(function(){
 		$("#writeFrm").attr("action","/writerProc");
@@ -85,7 +86,7 @@ $(function () {
 			$(this).attr("type","submit");
 		} else {
 			$("#upContentFrm").attr("action","updatePost");
-			alert("타임라인 아님")
+//			alert("타임라인 아님")
 			$(this).attr("type","submit");
 		}
 	});
@@ -96,6 +97,10 @@ $(function () {
 		$(this).attr("type","submit");
 	});
     
+    // 댓글 작성시 사진클릭 이벤트
+    $(".commentFrm>img").click(function(){
+		alert("현재 작업중");
+	});
 });
 
 // 글쓴이유저 더보기 클릭이벤트

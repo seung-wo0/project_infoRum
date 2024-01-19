@@ -241,17 +241,23 @@ div#loginStateMenu{
 /* 	border: 1px solid #000; */
 	position:absolute;
 	z-index: 999;
-	margin: 2% 0px 30px 70%;
+	margin: 40px 0 40px 80%;
 	height: 50px;
 	user-select:none;
 		
 }
 
-div#loginStateMenu button{
-	width: 80px;
-	cursor: pointer;
+div#loginStateMenu img {
+	margin-right: 15px;
 }
 
-div#loginStateMenu button#logoutBtn{
-	margin-right: 10px;
+div#loginStateMenu img:hover {
+	transform: translateY(-5px);
+	transition: all 0.3s;
+	cursor:pointer;
 }
+
+div#loginStateMenu span {
+	font-weight: bold;
+}
+

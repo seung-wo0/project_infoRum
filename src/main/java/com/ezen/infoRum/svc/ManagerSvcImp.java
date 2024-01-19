@@ -6,10 +6,10 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 import com.ezen.infoRum.dao.ManagerDao;
 import com.ezen.infoRum.dto.InquiryCmtDto;
 import com.ezen.infoRum.dto.InquiryDto;
+import com.ezen.infoRum.dto.MemDto;
 import com.ezen.infoRum.dto.NoticeDto;
 
 @Service
@@ -25,8 +25,8 @@ public class ManagerSvcImp implements ManagerSvc {
 		managerDao.noticeWriteProc(map);
 	}
 	@Override
-	public List<NoticeDto> mtdList() {
-		return managerDao.mtdList();
+	public List<NoticeDto> mtdList(int index_no) {
+		return managerDao.mtdList(index_no);
 
 	}
 
@@ -39,6 +39,22 @@ public class ManagerSvcImp implements ManagerSvc {
 	public void mtdNoticeDelete(int num) {
 		managerDao.mtdNoticeDelete(num);
 	}
+	
+	@Override
+	public void mtdNoticeUpdateProc(Map<String, Object> updateData) {
+		managerDao.mtdNoticeUpdateProc(updateData);
+	}
+	
+	@Override
+	public NoticeDto mtdNoticeUpdate(String num) {
+		return managerDao.mtdNoticeUpdate(num);
+	}
+	
+	@Override
+	public int totalChk() {
+		return managerDao.totalChk();
+	}
+
 
 //	재광이 파트
 	
@@ -50,7 +66,6 @@ public class ManagerSvcImp implements ManagerSvc {
 	}
 	@Override
 	public List<InquiryDto> mtdListView(int page) {
-		// TODO Auto-generated method stub
 		return managerDao.mtdListInquiry((page-1)*5);
 	}
 	
@@ -67,6 +82,33 @@ public class ManagerSvcImp implements ManagerSvc {
 		managerDao.inquiryUpdateReadCnt(param1);
 	}
 	
+	@Override
+	public void inquiryUpdateComment(String content, String image,int num) {
+		managerDao.inquiryUpdateComment(content, image, num);
+	}
+	public void inquiryUpdateProc(Map<String, Object> map) {
+		managerDao.inquiryUpdateProc(map);
+	}
+	
+	public void inquiryCommentWriteProc(Map<String, Object> map) {
+		System.out.println("확인: "+map);
+		managerDao.inquiryCommentWriteProc(map);
+	}
+	public void mtdInquiryDel(int num) {
+		managerDao.mtdInquiryDel(num);
+	}
+	public void mtdInquiryCommentDel(int commentNum) {
+		managerDao.mtdInquiryCommentDel(commentNum);
+	}
 
+	// 준성이 파트
+	@Override
+	public List<MemDto> mtdManagerList() {
+		return managerDao.mtdManagerList();
+	}
+	@Override
+	public void updateUserAuthority(String userId, int newAuthority) {
+	managerDao.updateUserAuthority(userId, newAuthority);
+    }
 
 }

@@ -36,6 +36,7 @@ dependencies {
 	
 	implementation group: 'org.glassfish.web', name: 'jakarta.servlet.jsp.jstl', version: '2.0.0'
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+		implementation 'commons-io:commons-io:2.6'
 }
 
 tasks.named('test') {

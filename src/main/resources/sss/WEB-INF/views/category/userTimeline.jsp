@@ -9,6 +9,12 @@ String nickname_session = (String)session.getAttribute("nickname_session");
 String selectUserid = request.getParameter("userid");
 // String nickname = request.getParameter("nickName");
 String linkUrl = request.getRequestURI();
+
+String profile_session = (String)session.getAttribute("profile_session");
+
+if(profile_session==null){
+	profile_session="nullprofile.png";
+}
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -31,7 +37,14 @@ String linkUrl = request.getRequestURI();
 			</div>
 			<div id="timelineArea" class="dFlex">
 				<span class="profileTimeLine">
-					<img src="images/board3.jpg" width="32" height="32">
+				<c:choose>
+					<c:when test="${ userInfo.profile == '' || userInfo.profile eq null}">
+					<img src="profileImg/nullprofile.png" width="32" height="32">
+					</c:when>
+					<c:otherwise>
+					<img src="profileImg/${ userInfo.profile }" width="32" height="32">
+					</c:otherwise>
+				</c:choose>	
 				</span>
 				<span>${ userInfo.nickname } (${ userInfo.uid })</span>
 				<div id="postCntArea" class="dFlex">
@@ -52,7 +65,14 @@ String linkUrl = request.getRequestURI();
 				<div id="userInfoArea" class="dFlex">
 					<div id="userImgArea">
 						<span class="profile">
-							<img src="images/board3.jpg" width="32" height="32">
+						<c:choose>
+							<c:when test="${ list.profile == '' || list.profile eq null}">
+							<img src="profileImg/nullprofile.png" width="32" height="32">
+							</c:when>
+							<c:otherwise>
+							<img src="profileImg/${ list.profile }" width="32" height="32">
+							</c:otherwise>
+						</c:choose>	
 						</span>
 					</div>
 					<div id="userWirterArea">
@@ -80,7 +100,7 @@ String linkUrl = request.getRequestURI();
 					<input type="hidden" name="category" value="${ list.category }">
 					<input type="hidden" name="image" value="">
 					<textarea id="content" name="content">${ list.content } </textarea>
-					<input type="hidden" name="profile" value="">
+					<input type="hidden" name="profile" value="<%= profile_session%>">
 					<input type="hidden" name="linkUrl" value="<%=linkUrl%>">
 					<div id="updateBtnArea">
 						<button type="submit">수정</button>
@@ -90,7 +110,7 @@ String linkUrl = request.getRequestURI();
 			
 				<div id="postFooterArea" class="postFooterArea${ list.num }">
 					<div id="likeBtnArea">
-						<span>좋아요</span>
+<!-- 						<span>좋아요</span> -->
 					</div>
 					
 					<div id="commentArea">
@@ -104,7 +124,7 @@ String linkUrl = request.getRequestURI();
 								<input type="hidden" name="category" value="${ list.category }">
 								<input type="hidden" id="ref" name="ref" value="${ list.num }">
 								<input type="hidden" name="image" value="">
-								<input type="hidden" name="profile" value="">
+								<input type="hidden" name="profile" value="<%=profile_session%>">
 								<input type="hidden" name="infouserid" value="${ userInfo.uid }">
 								<input type="hidden" name="linkUrl" value="<%=linkUrl %>">
 								<button type="submit" id="commentSendBtn" name="commentSendBtn">등록</button>
@@ -122,11 +142,17 @@ String linkUrl = request.getRequestURI();
 										<div id="user_comment_profileArea">
 											<span class="profile">
 											<c:choose>
-												<c:when test="${ cmtList.uid eq '' || cmtList.uid eq null}">
+												<c:when test="${ cmtList.uid eq '' || cmtList.uid eq null }">
 												</c:when>
 												<c:otherwise>
-													<img src="images/board3.jpg" alt="테스트">
-<%-- 												<img src="${ cmtList.profile }" alt="프로필"> --%>
+													<c:choose>
+														<c:when test="${ cmtList.profile == '' || cmtList.profile eq null }">
+														<img src="profileImg/nullprofile.png" width="32" height="32">
+														</c:when>
+														<c:otherwise>
+														<img src="profileImg/${ cmtList.profile }" width="32" height="32">
+														</c:otherwise>
+													</c:choose>
 												</c:otherwise>
 											</c:choose>
 											</span>
@@ -191,7 +217,7 @@ String linkUrl = request.getRequestURI();
 			</c:forEach>
 			<!-- 게시글출력 끝 -->
 			
-			<div id="testarea" class="listlow">
+			<div id="userCommentArea" class="listlow">
 			
 			</div>
 		</main>

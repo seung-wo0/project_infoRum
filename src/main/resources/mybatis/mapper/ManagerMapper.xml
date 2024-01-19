@@ -11,7 +11,7 @@
 	</insert>
 
 	<select id="mtdList" resultType="com.ezen.infoRum.dto.NoticeDto">
-		select * from notice order by num desc
+		select * from notice order by num desc limit #{param1},10;
 	</select>
 	
 	<select id="mtdDetail" resultType="com.ezen.infoRum.dto.NoticeDto">
@@ -25,6 +25,18 @@
 	<delete id="mtdNoticeDelete" parameterType="int">
 			 DELETE FROM notice WHERE num = #{param1}
 	</delete>
+	
+	<select id="mtdNoticeUpdate" parameterType="com.ezen.infoRum.dto.NoticeDto">
+			select * from notice where num = #{param1}
+	</select>
+	
+	<update id="mtdNoticeUpdateProc" parameterType="java.util.Map">
+			update notice set title = #{title}, content = #{content} where num = #{num}
+	</update>
+	
+	<select id="totalChk" resultType="int">
+		select count(*) from notice where num
+	</select>
 	
 	<!-- 재광이 파트 -->
 	
@@ -48,8 +60,36 @@
 		inquiry(uid,nickname,title,content,profile)
 		values (#{item1},#{item2}, #{item3},#{item4}, #{item5})
 	</insert>
+	<insert id="inquiryCommentWriteProc" parameterType="java.util.Map">
+		insert into
+		inquiry_comment(uid,nickname,pos,profile,content,image)
+		values (#{uid},#{nickname}, #{pos},#{profile}, #{content},#{image})
+	</insert>
+	
 	<update id="inquiryUpdateReadCnt">
 		UPDATE inquiry SET readCnt = readCnt+1  where num = #{param1}
+	</update>
+	<update id="inquiryUpdateProc">
+		UPDATE inquiry SET title= #{item1}, content = #{item2} where num = #{item3}
+
+	</update>
+	<update id="inquiryUpdateComment">
+		UPDATE inquiry_comment SET content = #{param1} , image = #{param2}  where num = #{param3}   
+	</update>
+	<delete id="mtdInquiryDel">
+		DELETE from inquiry where num = #{param1}
+	</delete>
+	<delete id="mtdInquiryCommentDel">
+		DELETE from inquiry_comment where num = #{param1}
+	</delete>
+
+	<!-- 준성이형 파트 -->
+
+	<select id="mtdManagerList" resultType="com.ezen.infoRum.dto.MemDto">
+		select * from userList order by num desc
+	</select>
+	<update id="updateUserAuthority">
+    		UPDATE userList SET auth = #{newAuthority} WHERE uid = #{userId}
 	</update>
 
 </mapper>

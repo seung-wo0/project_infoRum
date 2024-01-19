@@ -1,9 +1,7 @@
 package com.ezen.infoRum;
 
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,8 +40,11 @@ public class ForumController {
 			HttpServletRequest req,
 			Model model,
 			@RequestParam("category") String category
+//			@RequestParam("uid_session") String uid_session
 			) {
-	
+//		MemDto userInfo = memSvc.findMemInfo(uid_session);
+		
+//		model.addAttribute("userInfo",userInfo);
 		model.addAttribute("cmtList",forumSvcImp.mtdCommentList(category));
 		model.addAttribute("list", forumSvcImp.mtdListView(category));
 		
