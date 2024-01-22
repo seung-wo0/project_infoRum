@@ -30,7 +30,7 @@
 			<div id="headerIcon">
 				
 				<%if(uid_session2==null || uid_session2=="") {%>
-				<a href="/"> 
+				<a href="/login"> 
 					<img src="/images/Login_icon.png" width="45px">
 				</a> 
 				<%} else if(auth_session == 2) {%>

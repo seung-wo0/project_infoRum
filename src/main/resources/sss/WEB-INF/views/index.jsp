@@ -28,7 +28,7 @@ String nickname_session = (String)session.getAttribute("nickname_session");
 		<div id="header">
 			<div id="list" >
 				<span id="notice" class="notosanskr">공지사항</span>
-				<span class="notosanskr">문의사항</span>	
+				<span id= "inquiry" class="notosanskr">문의사항</span>	
 				<%if(auth_session == 2) {%>
 				<span id="manager" class="notosanskr">회원관리</span>
 				<%} %>

@@ -10,7 +10,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+		<title>InfoRum</title>
+	<link href="images/logo.png" rel="shortcut icon" type="image/x-icon">
 <script src="./script/jquery-3.7.1.min.js"></script>
 <link rel="stylesheet" href="./style/summernote-lite.css">
 <link rel="stylesheet" href="./style/inquiryStyle.css?v">

@@ -8,13 +8,14 @@ if(profile_session==null){
 	profile_session="nullprofile.png";
 }
 
-out.print(profile_session);
+
 %>    
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+		<title>InfoRum</title>
+	<link href="images/logo.png" rel="shortcut icon" type="image/x-icon">
 	<link rel="stylesheet" href="/style/memStyle.css?v">
 </head>
 <body>

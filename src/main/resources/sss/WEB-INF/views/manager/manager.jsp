@@ -6,7 +6,8 @@
 <html lang="ko">
 <head>
 	<meta charset="UTF-8">
-	<title>매니저</title>
+			<title>InfoRum</title>
+	<link href="images/logo.png" rel="shortcut icon" type="image/x-icon">
 	<link rel="stylesheet" href="/style/managerStyle.css?v">
 	<link rel="stylesheet" href="../style/headerTmpStyle.css?v">
 

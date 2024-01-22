@@ -13,7 +13,8 @@
 
 <link rel="stylesheet" href="./style/inquiryStyle.css">
 
-<title>Insert title here</title>
+		<title>InfoRum</title>
+	<link href="images/logo.png" rel="shortcut icon" type="image/x-icon">
 </head>
 <body>
     <div id="wrap">
@@ -86,7 +87,7 @@
 				</c:if>
                     
                 <div id="commentArea">
-                    <div id="commentUserName">윤준성</div>
+                    <div id="commentUserName">유저</div>
                     <textarea id="commentText" placeholder="댓글을 남겨보세요"></textarea>
                     <div id="commentSubmitArea">
 					 	 <form method="get" enctype="multipart/form-data" action="./inquiryCommentWriteProc">

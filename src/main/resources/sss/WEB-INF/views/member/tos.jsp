@@ -5,7 +5,8 @@
 <html lang="ko">
 <head>
 	<meta charset="UTF-8">
-	<title>회원가입 동의</title>
+		<title>InfoRum</title>
+	<link href="images/logo.png" rel="shortcut icon" type="image/x-icon">
 	<link rel="stylesheet" href="/style/memStyle.css?v">
 </head>
 <body>

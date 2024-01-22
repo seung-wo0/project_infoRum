@@ -48,6 +48,12 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
+	$("#inquiry").click(function() {
+		window.location.href = "inquiry";
+	});
+});
+
+$(document).ready(function() {
 	$("#manager").click(function() {
 		window.location.href = "manager";
 	});

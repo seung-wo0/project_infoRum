@@ -64,7 +64,7 @@ div#btnArea button {
     cursor: pointer;
     border-radius: 30px;
     color: #fff;
-    background-color: #ffac09; 
+    background-color: #238bdf; 
     border: none;
 }
 
@@ -100,7 +100,7 @@ footer#footerBtnArea button{
     cursor: pointer;
     border-radius: 30px;
     color: #fff;
-    background-color: #ffac09; 
+    background-color: #238bdf; 
     border: none;
 }
 
@@ -172,7 +172,7 @@ main#pwdCmain div#pwdCArea button{
     cursor: pointer;
     border-radius: 3px;
     color: #fff;
-    background-color: #ffac09; 
+    background-color: #238bdf; 
     border: none;
 	
 }
