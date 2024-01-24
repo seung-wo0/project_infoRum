@@ -42,20 +42,20 @@ if(profile_session==null){
 			
 			<!-- 게시글출력  -->
 			<c:forEach var="list" items="${ list }">
-				<!-- 게시글 리스트양식 inc 시작 -->
+			<div id="rowArea" class="listlowMain">
 				<%@ include file="../category/forumTmp/postTmp.jsp" %>
-				<!-- 게시글 리스트양식 inc 끝 -->
-				
+					
 				<!-- 댓글 출력 부분 inc 시작 -->
 				<%@ include file="../category/forumTmp/commentTmp.jsp" %>
 				<!-- 댓글 출력부분 inc 끝 -->
+			</div>
 				
 			</c:forEach>
 			<!-- 게시글출력 끝 -->
 			
-			<div id="userCommentArea" class="listlow">
-
-			</div>
+				<div id="userCommentArea" class="listlow">
+				
+				</div>
 		</main>
 		
 	</div>

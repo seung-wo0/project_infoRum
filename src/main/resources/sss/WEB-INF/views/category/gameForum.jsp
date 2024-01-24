@@ -10,7 +10,7 @@ String linkUrl = request.getRequestURI();
 
 String profile_session = (String)session.getAttribute("profile_session");
 
-if(profile_session==null){
+if(profile_session == null){
 	profile_session="nullprofile.png";
 }
 %>
@@ -42,18 +42,20 @@ if(profile_session==null){
 			
 			<!-- 게시글출력  -->
 			<c:forEach var="list" items="${ list }">
+			<div id="rowArea" class="listlowMain">
 				<%@ include file="../category/forumTmp/postTmp.jsp" %>
 					
 				<!-- 댓글 출력 부분 inc 시작 -->
 				<%@ include file="../category/forumTmp/commentTmp.jsp" %>
 				<!-- 댓글 출력부분 inc 끝 -->
+			</div>
 				
 			</c:forEach>
 			<!-- 게시글출력 끝 -->
 			
-			<div id="userCommentArea" class="listlow">
-			
-			</div>
+				<div id="userCommentArea" class="listlow">
+				
+				</div>
 		</main>
 		
 	</div>

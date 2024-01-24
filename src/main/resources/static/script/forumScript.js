@@ -205,7 +205,7 @@ function deleteComment(category,ref,uid,refCnt,linkUrl) {
 	}
 }
 
-// 게시글에서 사용자 닉네임 클릭시 이벤트
+// 게시글 및 댓글 에서 사용자 닉네임 클릭시 이벤트
 function userTimelineHome(selectuid) {
 	location.href="/userTimeline?userid="+selectuid;
 	console.log(selectuid);

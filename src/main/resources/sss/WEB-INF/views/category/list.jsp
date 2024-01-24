@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<c:forEach var="list" items="${ list }">
 <% 
 String category = request.getParameter("category"); 
 String linkUrl = request.getHeader("referer"); 
@@ -13,6 +12,7 @@ if(profile_session==null){
 	profile_session="nullprofile.png";
 }
 %>
+<c:forEach var="list" items="${ list }">
 <div id="rowArea" class="listrow" >
 	<div id="userInfoArea" class="dFlex">
 		<div id="userImgArea">
@@ -28,7 +28,7 @@ if(profile_session==null){
 			</span>
 		</div>
 		<div id="userWirterArea">
-			<span onclick="userTimelineHome('${ list.uid }')">${ list.nickname }</span>
+			<span onclick="userTimelineHome('${ list.uid }')" style="cursor: pointer;" >${ list.nickname }</span>
 			<span><fmt:formatDate value="${ list.regTM }" pattern="MM월dd일 a hh:mm"/></span>
 		</div>
 		<div id="userMoreArea" class="moreIco${ list.num }" onclick="moreSelect('${ list.num }')">
@@ -64,7 +64,7 @@ if(profile_session==null){
 				
 	<div id="postFooterArea" class="postFooterArea${ list.num }">
 		<div id="likeBtnArea">
-			<span>좋아요</span>
+
 		</div>
 		<div id="commentArea">
 			<div id="commentinputArea">
@@ -114,8 +114,8 @@ if(profile_session==null){
 							</div>
 						</div>
 						<div id="comment_right" class="comment_right" >
-							<div id="user_comment_nicknameArea">
-								<div id="nicknameArea">
+							<div id="user_comment_nicknameArea" style="cursor: pointer;">
+								<div id="nicknameArea" onclick="userTimelineHome('${ cmtList.uid }')">
 									<span style="font-size: 18px;" ><b>${ cmtList.nickname }</b></span>
 								</div>
 							</div>
@@ -159,10 +159,10 @@ if(profile_session==null){
 						</div>
 					</div>
 					</c:if>
-				</c:forEach>
+					</c:forEach>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </c:forEach>
 

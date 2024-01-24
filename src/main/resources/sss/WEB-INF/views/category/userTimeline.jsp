@@ -76,7 +76,7 @@ if(profile_session==null){
 						</span>
 					</div>
 					<div id="userWirterArea">
-						<span onclick="userTimelineHome('${ list.uid }')">${ list.nickname }</span>
+						<span onclick="userTimelineHome('${ list.uid }')" style="cursor: pointer;" >${ list.nickname }</span>
 						<span><fmt:formatDate value="${ list.regTM }" pattern="MM월dd일 a hh:mm"/></span>
 					</div>
 					<div id="userMoreArea" class="moreIco${ list.num }" onclick="moreSelect('${ list.num }')">
@@ -160,7 +160,7 @@ if(profile_session==null){
 									</div>
 									
 									<div id="comment_right" class="comment_right" >
-										<div id="user_comment_nicknameArea">
+										<div id="nicknameArea" onclick="userTimelineHome('${ cmtList.uid }')" style="cursor: pointer;">
 											<div id="nicknameArea">
 												<span style="font-size: 18px;" ><b>${ cmtList.nickname }</b></span>
 											</div>
@@ -211,8 +211,6 @@ if(profile_session==null){
 						</div>
 					</div>
 				</div>
-				
-				
 			</div>
 			</c:forEach>
 			<!-- 게시글출력 끝 -->
