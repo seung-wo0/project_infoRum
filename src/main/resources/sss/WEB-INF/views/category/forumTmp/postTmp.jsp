@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <div id="userInfoArea" class="dFlex">
+<<<<<<< HEAD
 <span>${ list.auth }</span>
 	<div id="userImgArea">
 		<span class="profile">
@@ -31,6 +32,31 @@
 		<c:if test="${ list.uid == uid_session || auth_session > 0 }">
 			<li onclick="deletePost('${ list.category }','${ list.num }','${ list.uid }','<%=linkUrl%>')">삭제</li>
 		</c:if>
+=======
+	<div id="userImgArea">
+		<span class="profile">
+		<c:choose>
+			<c:when test="${ list.profile == '' || list.profile eq null}">
+			<img src="profileImg/nullprofile.png" width="32" height="32">
+			</c:when>
+			
+			<c:otherwise>
+			<img src="profileImg/${ list.profile }" width="32" height="32">
+			</c:otherwise>
+		</c:choose>
+		</span>
+	</div>
+	<div id="userWirterArea">
+		<span onclick="userTimelineHome('${ list.uid }')" style="cursor: pointer;">${ list.nickname }</span>
+		<span><fmt:formatDate value="${ list.regTM }" pattern="MM월dd일 a hh:mm"/></span>
+	</div>
+	<div id="userMoreArea" class="moreIco${ list.num }" onclick="moreSelect('${ list.num }')">
+		<c:if test="${ list.uid == uid_session }">
+		<img src="images/free-icon-more-2354557.png" alt="더보기">
+		<ul>
+			<li>수정</li>
+			<li onclick="deletePost('${ list.category }','${ list.num }','${ list.uid }','<%=linkUrl%>')">삭제</li>
+>>>>>>> branch 'master' of https://github.com/seung-wo0/project_infoRum.git
 		</ul>
 		</c:if>
 	</div>

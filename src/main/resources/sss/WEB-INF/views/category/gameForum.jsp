@@ -12,8 +12,11 @@ String linkUrl = request.getRequestURI();
 
 String profile_session = (String)session.getAttribute("profile_session");
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> branch 'master' of https://github.com/seung-wo0/project_infoRum.git
 if(profile_session == null){
 	profile_session="nullprofile.png";
 }
