@@ -110,5 +110,10 @@ public class ManagerSvcImp implements ManagerSvc {
 	public void updateUserAuthority(String userId, int newAuthority) {
 	managerDao.updateUserAuthority(userId, newAuthority);
     }
+	
+	@Override
+	public int deleteUser(String del_uid) {
+		return managerDao.deleteUser(del_uid);
+	}
 
 }

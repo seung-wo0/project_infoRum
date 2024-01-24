@@ -39,5 +39,6 @@ public interface ManagerDao {
 // 		준성이 파트
 		public List<MemDto> mtdManagerList();
 		public void updateUserAuthority(String userId, int newAuthority);		
+		public int deleteUser(String del_uid);
 	
 }

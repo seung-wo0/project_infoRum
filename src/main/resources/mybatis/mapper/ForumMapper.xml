@@ -3,6 +3,8 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 	<mapper namespace="com.ezen.infoRum.dao.ForumDao">
+<!-- 게시글 관련 매퍼 시작-->
+
 		<!-- 게시판 초기화면 리스트-->
 		<select id="mtdListView" resultType="com.ezen.infoRum.dto.ForumDto">
 			select * from mainBoard where category='${categori}' order by num desc limit 0,5
@@ -53,10 +55,11 @@
 		<select id="mtdPostCnt" resultType="int">
 			select count(*) from mainBoard where uid='${param1}'
 		</select>
-		
-		
-		<!-- 댓글 관련 -->
-		
+<!-- 게시글 관련 매퍼 끝-->
+<!--  -->
+<!--  -->		
+<!-- 댓글 관련 매퍼 시작-->
+
 		<!-- 댓글 초반리스트 불러오기 -->
 		<select id="mtdCommentList" resultType="com.ezen.infoRum.dto.ForumCommentDto">
 			select * from boardComment where category='${param1}'
@@ -92,5 +95,7 @@
 	  		uid='' , nickname='', comment='댓글작성자가 삭제한 댓글 입니다.', image='', profile=''
 			where ref='${param1}' and refCnt='${param2}'
 	  	</update>
-		
+	  	
+<!-- 댓글 관련 매퍼 끝-->
+
 	</mapper>

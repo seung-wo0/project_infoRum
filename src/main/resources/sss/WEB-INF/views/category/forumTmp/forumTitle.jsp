@@ -3,6 +3,7 @@
 <%
 String categoryTitle = "";
 String categoryIcon = "";
+
 if (category.equals("pet")){
 	categoryIcon = "🐾";
 	categoryTitle = "애완동물";

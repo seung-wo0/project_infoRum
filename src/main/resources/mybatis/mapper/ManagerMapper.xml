@@ -88,8 +88,13 @@
 	<select id="mtdManagerList" resultType="com.ezen.infoRum.dto.MemDto">
 		select * from userList order by num desc
 	</select>
+	
 	<update id="updateUserAuthority">
-    		UPDATE userList SET auth = #{newAuthority} WHERE uid = #{userId}
+    	UPDATE userList SET auth = #{param2} WHERE uid = #{param1}
 	</update>
+	
+	<delete id="deleteUser">
+		DELETE from userList where uid = #{param1}
+	</delete>
 
 </mapper>

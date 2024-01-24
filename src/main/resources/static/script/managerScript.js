@@ -12,7 +12,7 @@ $(document).ready(function () {
             let authoritySelect = listRow.find('.authoritySelect');
             let selectedValue = authoritySelect.val();
 
-            // AJAX request to update user's authority
+
             $.ajax({
                 type: "POST",
                 url: "/updateAuthority",
@@ -23,14 +23,28 @@ $(document).ready(function () {
                     } else if (selectedValue == 1) {
                         authLevelSpan.text('서브관리자');
                     }
-                    // Redirect to the manager page after updating authority
+
                     window.location.href = '/manager';
                 },
                 error: function (error) {
                     console.error("Error updating authority:", error);
-                    // Handle error as needed
+
                 }
             });
         }
     });
+    
+    $(".delete_UserID").click(function () {
+        let userId = $(this).attr('id').split('_')[1];
+		let confirmMessage = userId + " 님을 강제 탈퇴 하시겠습니까?";
+		
+		if (confirm(confirmMessage)) {
+			location.href= "deleteUser?del_uid="+userId;
+			
+			alert(userId + " 님을 강제탈퇴 하였습니다.");
+		} 
+
+    });
+    
+    
 });

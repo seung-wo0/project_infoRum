@@ -3,16 +3,23 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<c:forEach var="list" items="${ list }">
 <% 
 String category = request.getParameter("category"); 
 String linkUrl = request.getHeader("referer"); 
+String uid_session = (String)session.getAttribute("uid_session");
+String nickname_session = (String)session.getAttribute("nickname_session");
 String profile_session = (String)session.getAttribute("profile_session");
+int auth_session = 0;
 
 if(profile_session==null){
 	profile_session="nullprofile.png";
 }
+
+if(uid_session!=null){
+auth_session = (int)session.getAttribute("auth_session");
+}
 %>
+<c:forEach var="list" items="${ list }">
 <div id="rowArea" class="listrow" >
 	<div id="userInfoArea" class="dFlex">
 		<div id="userImgArea">
@@ -28,15 +35,20 @@ if(profile_session==null){
 			</span>
 		</div>
 		<div id="userWirterArea">
-			<span onclick="userTimelineHome('${ list.uid }')">${ list.nickname }</span>
+			<span onclick="userTimelineHome('${ list.uid }')" style="cursor: pointer;" >${ list.nickname }</span>
 			<span><fmt:formatDate value="${ list.regTM }" pattern="MM월dd일 a hh:mm"/></span>
 		</div>
 		<div id="userMoreArea" class="moreIco${ list.num }" onclick="moreSelect('${ list.num }')">
-		<c:if test="${ list.uid == uid_session }">
+		<c:set var="auth_session" value="<%=auth_session %>" />
+		<c:if test="${ list.uid == uid_session || auth_session > 0 }">
 			<img src="images/free-icon-more-2354557.png" alt="더보기">
 			<ul>
+			<c:if test="${ list.uid == uid_session }">
 				<li>수정</li>
+			</c:if>
+			<c:if test="${ list.uid == uid_session || auth_session > 0 }">
 				<li onclick="deletePost('${ list.category }','${ list.num }','${ list.uid }','<%=linkUrl%>')">삭제</li>
+			</c:if>
 			</ul>
 		</c:if>
 		</div>
@@ -64,7 +76,7 @@ if(profile_session==null){
 				
 	<div id="postFooterArea" class="postFooterArea${ list.num }">
 		<div id="likeBtnArea">
-			<span>좋아요</span>
+
 		</div>
 		<div id="commentArea">
 			<div id="commentinputArea">
@@ -114,8 +126,8 @@ if(profile_session==null){
 							</div>
 						</div>
 						<div id="comment_right" class="comment_right" >
-							<div id="user_comment_nicknameArea">
-								<div id="nicknameArea">
+							<div id="user_comment_nicknameArea" style="cursor: pointer;">
+								<div id="nicknameArea" onclick="userTimelineHome('${ cmtList.uid }')">
 									<span style="font-size: 18px;" ><b>${ cmtList.nickname }</b></span>
 								</div>
 							</div>
@@ -149,20 +161,24 @@ if(profile_session==null){
 						</div>
 						<div id="userCmtMoreArea" class="commentMoreIco${list.num}_${ cmtList.refCnt }" onclick="commentSelect('${list.num}_${ cmtList.refCnt }')">
 						
-						<c:if test="${ cmtList.uid == uid_session }">
+						<c:if test="${ cmtList.uid == uid_session || auth_session >= 0}">
 							<img src="images/free-icon-more-2354557.png" alt="더보기" width="48" height="48">
 							<ul>
+							<c:if test="${ cmtList.uid == uid_session}">
 								<li onclick="commentEdit('${ list.num }','${ cmtList.refCnt }')" class="cmtEdit${ cmtList.ref }_${ cmtList.refCnt }">수정</li>
+							</c:if>
+							<c:if test="${ cmtList.uid == uid_session || auth_session > 0}">
 								<li onclick="deleteComment('${ list.category }','${ list.num }','${ list.uid }','${ cmtList.refCnt }','<%= linkUrl %>')">삭제</li>
+							</c:if>
 							</ul>
 						</c:if>
 						</div>
 					</div>
 					</c:if>
-				</c:forEach>
+					</c:forEach>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </c:forEach>
 

@@ -50,6 +50,13 @@
                         </c:when>
                         <c:when test="${userList.auth eq 1}">
                             <span id="authLevel">서브관리자</span>
+							<span>
+                                <select class="authoritySelect" id="authoritySelect_${userList.uid}">
+                                    <option value="0">일반회원</option>
+                                </select>
+                                <button class="authChangeBtn" id="authChange_${userList.uid}">권한 변경</button>
+                            	<button class="delete_UserID" id="deleteUser_${userList.uid}">강제 탈퇴</button>
+                            </span>
                         </c:when>
                         <c:when test="${userList.auth eq 0}">
                             <span id="authLevel">일반회원</span>
@@ -60,6 +67,7 @@
                                     <option value="1">서브관리자</option>
                                 </select>
                                 <button class="authChangeBtn" id="authChange_${userList.uid}">권한 변경</button>
+                                <button class="delete_UserID" id="DeleteUser_${userList.uid}">강제 탈퇴</button>
                             </span>
                         </c:when>
                     </c:choose>

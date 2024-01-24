@@ -3,7 +3,7 @@
 
 <%
 	String uid_session = (String)session.getAttribute("uid_session");
-String nickname_session = (String)session.getAttribute("nickname_session");
+	String nickname_session = (String)session.getAttribute("nickname_session");	
 	int auth_session = 0;
 	
 	if(uid_session!=null){

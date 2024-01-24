@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%
 String uid_session = (String)session.getAttribute("uid_session");
@@ -43,18 +44,20 @@ if(profile_session==null){
 			
 			<!-- 게시글출력  -->
 			<c:forEach var="list" items="${ list }">
+			<div id="rowArea" class="listlowMain">
 				<%@ include file="../category/forumTmp/postTmp.jsp" %>
 					
 				<!-- 댓글 출력 부분 inc 시작 -->
 				<%@ include file="../category/forumTmp/commentTmp.jsp" %>
 				<!-- 댓글 출력부분 inc 끝 -->
+			</div>
 				
 			</c:forEach>
 			<!-- 게시글출력 끝 -->
 			
-			<div id="userCommentArea" class="listlow">
-			
-			</div>
+				<div id="userCommentArea" class="listlow">
+				
+				</div>
 		</main>
 		
 	</div>
