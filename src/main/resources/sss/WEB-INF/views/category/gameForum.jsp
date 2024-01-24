@@ -8,15 +8,8 @@ String nickname_session = (String)session.getAttribute("nickname_session");
 String category = request.getParameter("category");
 String linkUrl = request.getRequestURI();
 
-// String auth_session = request.getParameter("auth_session");
-
 String profile_session = (String)session.getAttribute("profile_session");
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> branch 'master' of https://github.com/seung-wo0/project_infoRum.git
 if(profile_session == null){
 	profile_session="nullprofile.png";
 }

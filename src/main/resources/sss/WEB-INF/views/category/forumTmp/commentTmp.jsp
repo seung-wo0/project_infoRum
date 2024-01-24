@@ -87,7 +87,7 @@
 				</div>
 				
 				<div id="userCmtMoreArea" class="commentMoreIco${list.num}_${ cmtList.refCnt }" onclick="commentSelect('${list.num}_${ cmtList.refCnt }')">
-<<<<<<< HEAD
+
 				<c:if test="${ cmtList.uid == uid_session || auth_session >= 0}">
 					<img src="images/free-icon-more-2354557.png" alt="더보기" width="48" height="48">
 					<ul>
@@ -97,13 +97,7 @@
 					<c:if test="${ cmtList.uid == uid_session || auth_session > 0}">
 						<li onclick="deleteComment('${ list.category }','${ list.num }','${ list.uid }','${ cmtList.refCnt }','<%= linkUrl %>')">삭제</li>
 					</c:if>
-=======
-				<c:if test="${ cmtList.uid == uid_session }">
-					<img src="images/free-icon-more-2354557.png" alt="더보기" width="48" height="48">
-					<ul>
-						<li onclick="commentEdit('${ list.num }','${ cmtList.refCnt }')" class="cmtEdit${ cmtList.ref }_${ cmtList.refCnt }">수정</li>
-						<li onclick="deleteComment('${ list.category }','${ list.num }','${ list.uid }','${ cmtList.refCnt }','<%= linkUrl %>')">삭제</li>
->>>>>>> branch 'master' of https://github.com/seung-wo0/project_infoRum.git
+
 					</ul>
 				</c:if>
 				</div>
