@@ -6,6 +6,7 @@ import lombok.Data;
 
 @Data
 public class ForumCommentDto {
+	
 	private String num;
 	private String uid;
 	private String nickname;
@@ -16,4 +17,5 @@ public class ForumCommentDto {
 	private String image;
 	private String profile;
 	private Timestamp regTM;
+	
 }

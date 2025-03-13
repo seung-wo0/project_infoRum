@@ -16,8 +16,9 @@ if(profile_session==null){
 }
 
 if(uid_session!=null){
-auth_session = (int)session.getAttribute("auth_session");
+	auth_session = (int)session.getAttribute("auth_session");
 }
+
 %>
 <c:forEach var="list" items="${ list }">
 <div id="rowArea" class="listrow" >

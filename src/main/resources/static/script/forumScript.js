@@ -115,7 +115,7 @@ function moreSelect(param) {
 		$(clickMore+">ul>li").css("display","block");
 		let upContentFrm = $(clickMore).parent().next().next().attr("id");
 //		console.log("upContentFrm.next : " + upContentFrm.attr("id"))
-		$(clickMore+">ul>li:nth-child(1)").click(function(){
+		$(clickMore+">ul>li:nth-child(1)").click(function() {
 //			console.log("수정클릭");
 			let listContentArea = "."+$(clickMore).parent().next().attr("id");
 			$("."+upContentFrm+param+">.upcontentArea").css("display","block");

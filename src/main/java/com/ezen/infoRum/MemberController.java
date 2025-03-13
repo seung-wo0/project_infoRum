@@ -1,6 +1,7 @@
 package com.ezen.infoRum;
 
 import java.io.File;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -52,7 +53,7 @@ public class MemberController {
 			return "redirect:/";
 		} else {
 			System.out.println("로그인 실패");
-			
+
 			model.addAttribute("uid",uid);
 			return "member/login";
 		}
@@ -82,12 +83,10 @@ public class MemberController {
 	//회원가입페이지
 	@RequestMapping("/join")
 	public String mtdJoin() {
-		
 		return "member/join";
 	}
 	
 	//ID 중복 체크
-	
 	@RequestMapping("/chkID")
 	public String mtdChkID(HttpServletRequest req, HttpSession session) {
 		

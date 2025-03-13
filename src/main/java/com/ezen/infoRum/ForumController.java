@@ -28,7 +28,7 @@ public class ForumController {
 	@Autowired
 	private MemSvc memSvc;
 	
-	// 메인페이지
+	//	 메인페이지
 	@RequestMapping("/")
 	public String mtdIndex() {
 		return "index";
@@ -233,16 +233,20 @@ public class ForumController {
 	@RequestMapping("/list")
 	public String list(
 			Model model , 
-			@RequestParam("param1") String param1,
-			@RequestParam("param2") String param2,
+			@RequestParam("param1") int param1,
+			@RequestParam("param2") int param2,
 			@RequestParam("category") String category,
 			@RequestParam("userid") String userid
 			) {
-
+			
 		if (! category.equals("")) {
 			model.addAttribute("cmtList",forumSvcImp.mtdCommentList(category));
 			model.addAttribute("list", forumSvcImp.mtdListViewPlus(param1, param2, category));
-		} else if (! userid.equals("")){
+
+			
+		}
+		
+		if (! userid.equals("")){
 			model.addAttribute("list", forumSvcImp.mtdUserTimelineListPlus(param1, param2, userid));
 			model.addAttribute("cmtList", forumSvcImp.mtdTLCommentList());
 		}

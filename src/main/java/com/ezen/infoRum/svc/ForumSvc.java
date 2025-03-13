@@ -9,7 +9,9 @@ import com.ezen.infoRum.dto.ForumDto;
 public interface ForumSvc {
 	public List<ForumDto> mtdListView(String category);
 	
-	public List<ForumDto> mtdListViewPlus(String category, String param1, String param2);
+	public int mtdListViewCnt(String category);
+	
+	public List<ForumDto> mtdListViewPlus(int param1, int param2, String category);
 	
 	public int mtdWriterPost (Map<String,Object> map);
 	
@@ -19,7 +21,7 @@ public interface ForumSvc {
 	
 	public List<ForumDto> mtdUserTimelineList(String uid);
 	
-	public List<ForumDto> mtdUserTimelineListPlus(String uid, String param1, String param2);
+	public List<ForumDto> mtdUserTimelineListPlus(int param1, int param2, String userid);
 
 	public int mtdPostCnt(String uid);
 	

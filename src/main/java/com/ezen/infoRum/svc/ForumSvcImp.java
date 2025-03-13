@@ -21,8 +21,13 @@ public class ForumSvcImp implements ForumSvc {
 	};
 	
 	@Override
-	public List<ForumDto> mtdListViewPlus(String category, String param1, String param2) {
-		return forumDao.mtdListViewPlus(category, param1, param2);
+	public int mtdListViewCnt(String category) {
+		return forumDao.mtdListViewCnt(category);
+	}
+	
+	@Override
+	public List<ForumDto> mtdListViewPlus(int param1, int param2, String category) {
+		return forumDao.mtdListViewPlus(param1, param2, category);
 	}
 	
 	@Override
@@ -46,8 +51,8 @@ public class ForumSvcImp implements ForumSvc {
 	}
 	
 	@Override
-	public List<ForumDto> mtdUserTimelineListPlus(String uid, String param1, String param2) {
-		return forumDao.mtdUserTimelineListPlus(uid, param1, param2);
+	public List<ForumDto> mtdUserTimelineListPlus(int param1, int param2, String uid) {
+		return forumDao.mtdUserTimelineListPlus(param1, param2, uid);
 	}
 	
 	@Override

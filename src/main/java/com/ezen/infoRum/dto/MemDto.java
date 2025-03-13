@@ -15,4 +15,5 @@ public class MemDto {
 	private String profile;
 	private int auth;
 	private Timestamp regTM;
+	
 }

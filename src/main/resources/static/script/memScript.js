@@ -92,5 +92,10 @@ $(function () {
 					}
 			}
 		})
-
+		
+		// login.jsp
+		loginSbmBtn
+		$("#pwdChangeBtn").click(function(){
+			
+		});
 });

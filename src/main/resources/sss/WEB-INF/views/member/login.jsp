@@ -25,7 +25,7 @@
 			</div>
 			
 			<div id="btnArea">
-				<button class="notosanskr">로그인</button>
+				<button id="loginSbmBtn" class="notosanskr">로그인</button>
 			</div>
 			
 			<footer id="loginFooter" class="dFlex">

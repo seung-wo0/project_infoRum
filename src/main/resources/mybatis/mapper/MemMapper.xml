@@ -56,13 +56,8 @@
 <!-- 		</foreach> -->
 <!-- </delete> -->
 	
-
-
-
-
-
-
-
+	
+	
 <!-- <mapper namespace="dao 경로와 인터페이스명"> -->
 
 <!-- <select id="dao에서 사용하는 메서드명" resultType="dto"> -->

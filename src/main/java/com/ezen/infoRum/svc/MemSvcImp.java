@@ -26,7 +26,6 @@ public class MemSvcImp implements MemSvc {
 	
 	@Override
 	public int LoginProc(String uid, String upw) {
-	
 		return memDao.LoginProc(uid,upw);
 	}
 	

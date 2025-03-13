@@ -5,7 +5,7 @@
 <html lang="ko">
 <head>
 	<meta charset="UTF-8">
-		<title>InfoRum</title>
+		<title>BookDelivery</title>
 	<link href="images/logo.png" rel="shortcut icon" type="image/x-icon">
 	<link rel="stylesheet" href="/style/memStyle.css?v">
 </head>

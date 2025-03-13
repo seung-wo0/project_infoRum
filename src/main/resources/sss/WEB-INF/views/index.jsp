@@ -17,7 +17,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>InfoRum</title>
-	<link href="images/logo.png" rel="shortcut icon" type="image/x-icon">
+	<link href="images/Logo.png" rel="shortcut icon" type="image/x-icon">
 	<link rel="stylesheet" href="/style/style.css?v">
 	<!-- Link Swiper's CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />

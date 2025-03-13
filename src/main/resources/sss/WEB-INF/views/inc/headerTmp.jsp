@@ -25,7 +25,7 @@
 				</a>
 			</div>
 			<div id="logo">
-					<img src="/images/logo.png" width="150px">
+					<img src="images/Logo.png" width="150px">
 			</div>
 			<div id="headerIcon">
 				

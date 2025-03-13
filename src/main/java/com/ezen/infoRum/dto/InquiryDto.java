@@ -15,8 +15,6 @@ public class InquiryDto {
 	private String content;
 	private Timestamp regTm;
 	private int readCnt;
-	
-
 }
 
 
