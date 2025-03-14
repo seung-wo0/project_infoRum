@@ -45,10 +45,13 @@
 > - ## 회원가입, 로그인
 >
 >   <img src="https://github.com/user-attachments/assets/da45342a-64a9-48bb-950c-f1b5ee34cbe8" width="100%" title="로그인창" />
+>
+>   - 로그인창
+>
 >   <img src="https://github.com/user-attachments/assets/d6d1495d-08be-4923-bcee-8a5c56829239" width="45%" title="회원가입 동의창" />
 >   <img src="https://github.com/user-attachments/assets/feaed254-3d9c-4fb3-9988-51059f5a490e" width="45%" title="회원가입 기재란" />
 >
->   - 로그인창, 회원가입 동의창, 동의창 이후 가입 기재란
+>   - 회원가입 동의창, 동의창 이후 가입 기재란
 >
 > - ## 마이페이지 (회원정보수정)
 >
