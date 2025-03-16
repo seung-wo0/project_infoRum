@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <%
 String uid_session = (String)session.getAttribute("uid_session");
 String nickname_session = (String)session.getAttribute("nickname_session");
@@ -10,16 +11,17 @@ String linkUrl = request.getRequestURI();
 
 String profile_session = (String)session.getAttribute("profile_session");
 
-if(profile_session == null){
+if(profile_session==null){
 	profile_session="nullprofile.png";
 }
 
 %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 	<meta charset="UTF-8">
-	<title>게임 포럼</title>
+	<title><%= category %> 포럼</title>
 	<link rel="stylesheet" href="/style/forumStyle.css?v">
 </head>
 <body>
@@ -29,9 +31,7 @@ if(profile_session == null){
 		<%@ include file="../inc/headerTmp.jsp" %>
     	<!--  헤더템플릿 끝 -->   
 		
-		
 		<main id="main">
-		
 			<!-- 각 포럼 타이틀명  -->
 			<%@ include file="../category/forumTmp/forumTitle.jsp" %>
 			<!-- 각 포럼 타이틀명  -->

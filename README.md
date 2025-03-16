@@ -32,6 +32,12 @@
 
 ---
 
+> # 2025.03.17
+> - jsp 파일 간소화
+>  - petForum.jsp, financeForum.jsp ··· 등 Forum.jsp 관련 파일들 을 ForumPage.jsp 한 파일로 통일
+
+---
+
 > # 2025.03.14 ~ 2025.03~
 >
 > ## 2024년 작업로그 작성 및 수정중

@@ -48,7 +48,8 @@ public class ForumController {
 		model.addAttribute("cmtList",forumSvcImp.mtdCommentList(category));
 		model.addAttribute("list", forumSvcImp.mtdListView(category));
 		
-		return "category/"+ category +"Forum";
+//		return "category/"+ category +"Forum"; //원본
+		return "category/ForumPage";
 	}
 	
 	// 게시글작성
