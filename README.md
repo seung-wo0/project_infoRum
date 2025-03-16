@@ -61,13 +61,22 @@
 >
 > - ## 게시판 (포럼)
 >
->   <img src="https://github.com/user-attachments/assets/637229ec-206e-4df7-bcc8-3599bdba2324" width="49%" title="비로그인시 게시판" />
+>   <img src="https://github.com/user-attachments/assets/637229ec-206e-4df7-bcc8-3599bdba2324" width="100%" title="비로그인시 게시판" />
 >
 >   - 비 로그인시 게시판(포럼)의 화면
->     <img src="https://github.com/user-attachments/assets/7ee9740c-4a9d-437f-8278-c61f7c46cc74" width="49%" title="로그인시 게시판" />
+>
+>     <img src="https://github.com/user-attachments/assets/7ee9740c-4a9d-437f-8278-c61f7c46cc74" width="100%" title="로그인시 게시판" />
 >
 >   - 로그인시 게시판(포럼)의 화면
 >
 > - ## 관리자 페이지
+>	
+>     <img src="https://github.com/user-attachments/assets/d6c35447-9003-4e94-aebc-f2f3f502743a" width="100%" title="관리자 로그인시" />
+>
+>   - 관리자 로그인 시 공지/문의 외 "회원관리" 탭 활성화
+>
+>     <img src="https://github.com/user-attachments/assets/053822cf-9ed5-4a7b-80b0-c714b1533684" width="100%" title="관리자로그인 후 관리자 회원수정 페이지" />
+>
+>   - 회원목록페이지 진입 시 모든 회원의 회원분류/권한 변경 및 강제탈퇴 기능
 >
 > - ## 기타 UI/UX조정
